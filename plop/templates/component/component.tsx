@@ -1,17 +1,17 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop } from "@stencil/core";
 
 @Component({
-  tag: 'template-component',
-  styleUrl: 'template-component.css',
-  shadow: true,
+  tag: "ph-template-component",
+  styleUrl: "template-component.scss",
+  shadow: true
 })
 export class TemplateComponent {
   /**
    * A test prop
    */
-  @Prop() test: string = 'Hello World';
+  @Prop() test: string = "Hello World";
 
   render() {
-    return <div class="template-component">{this.test}</div>;
+    return <div class="ph-template-component">{this.test}</div>;
   }
 }

@@ -1,8 +1,8 @@
-import { storiesOf } from '@storybook/html';
+import { storiesOf } from "@storybook/html";
 
-storiesOf('Components/TemplateComponent', module)
-  .add('Default', () => `<template-component></template-component>`)
+storiesOf("Components/TemplateComponent", module)
+  .add("Default", () => `<ph-template-component></ph-template-component>`)
   .add(
-    'With Input',
-    () => `<template-component test="John"></template-component>`,
+    "With Input",
+    () => `<ph-template-component test="John"></ph-template-component>`
   );
