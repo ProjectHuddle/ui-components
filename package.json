@@ -1,7 +1,7 @@
 {
-  "name": "stencil-starter-project-name",
+  "name": "project-huddle-ui",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "description": "A collection of web components to use for ProjectHuddle development.",
   "module": "dist/esm/index.js",
   "main": "dist/index.js",
   "unpkg": "dist/ionic.js",
@@ -11,14 +11,44 @@
     "dist/"
   ],
   "scripts": {
-    "build": "stencil build --docs",
-    "start": "stencil build --dev --watch --serve",
+    "build": "npm-run-all clean build:stencil build:storybook post:build",
+    "start": "npm-run-all --parallel stencil storybook",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll"
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "storybook": "start-storybook -p 6007 -s ./stencil-utilities/public-assets",
+    "build-storybook": "build-storybook",
+    "clean": "del-cli dist storybook-static",
+    "build:stencil": "cross-env STENCIL_ENV=prod stencil build --docs",
+    "build:storybook": "build-storybook",
+    "stencil": "cross-env STENCIL_ENV=dev stencil build --dev --watch --serve --docs",
+    "prestart": "npm run build:stencil",
+    "generate": "plop",
+    "post:build": "node ./stencil-utilities/post-build.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "popper.js": "^1.15.0"
+  },
   "devDependencies": {
-    "@stencil/core": "~0.16.2"
+    "@babel/core": "^7.4.3",
+    "@stencil/core": "0.18.0",
+    "@stencil/sass": "^0.1.1",
+    "@storybook/addon-actions": "^5.0.6",
+    "@storybook/html": "^5.0.6",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.13.2",
+    "babel-loader": "^8.0.5",
+    "chalk": "^2.4.2",
+    "cross-env": "^5.2.0",
+    "del-cli": "^1.1.0",
+    "fs-extra": "^7.0.1",
+    "npm-run-all": "^4.1.5",
+    "plop": "^2.2.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "stencil": {
+    "protocol": "http",
+    "host": "localhost",
+    "port": 3333,
+    "buildDir": "build"
+  }
 }

@@ -1,8 +1,18 @@
+export function getParents(el, parentSelector) {
+  // If no parentSelector defined will bubble up all the way to *document*
+  if (parentSelector === undefined) {
+    parentSelector = document;
+  }
 
-export function format(first: string, middle: string, last: string): string {
-  return (
-    (first || '') +
-    (middle ? ` ${middle}` : '') +
-    (last ? ` ${last}` : '')
-  );
+  var parents = [];
+  var p = el.parentNode;
+
+  while (p !== parentSelector) {
+    var o = p;
+    parents.push(o);
+    p = o.parentNode;
+  }
+  parents.push(parentSelector); // Push that parentSelector you wanted to stop at
+
+  return parents;
 }

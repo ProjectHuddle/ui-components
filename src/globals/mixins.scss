@@ -1,0 +1,113 @@
+// css variable mixin with fallback
+@mixin var($property, $varName) {
+  #{$property}: map-get($vars, $varName);
+  #{$property}: var(--ph-#{$varName}, map-get($vars, $varName));
+}
+@mixin reset() {
+  all: initial;
+  font-size: 16px;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @include var(font-family, body-font);
+}
+@mixin headings() {
+  h1 {
+    font-size: 2.2em;
+    margin-top: 0;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 12px;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  b,
+  strong,
+  th {
+    font-weight: 600;
+  }
+}
+
+@mixin closeButton($width: 14px, $height: 14px, $top: 30px, $right: 30px) {
+  width: $width;
+  height: $height;
+  opacity: 0.5;
+  cursor: pointer;
+  position: absolute;
+  top: $top;
+  right: $right;
+}
+@mixin popperArrow($popper-class: ".ph-popover") {
+  [x-arrow] {
+    position: absolute;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: white;
+      -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+      top: 0;
+      left: 50%;
+      -webkit-box-shadow: 0 0 0 1px rgba(35, 40, 45, 0.12),
+        0 0 3px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 0 1px rgba(35, 40, 45, 0.12), 0 0 3px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  #{$popper-class}[x-placement="bottom"] [x-arrow],
+  #{$popper-class}[x-placement="bottom-start"] [x-arrow],
+  #{$popper-class}[x-placement="bottom-end"] [x-arrow] {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: -12px;
+    transform: rotate(-180deg);
+    overflow: hidden;
+  }
+
+  #{$popper-class}[x-placement="top"] [x-arrow],
+  #{$popper-class}[x-placement="top-start"] [x-arrow],
+  #{$popper-class}[x-placement="top-end"] [x-arrow] {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    bottom: -12px;
+    overflow: hidden;
+  }
+
+  #{$popper-class}[x-placement="left"] div[x-arrow],
+  #{$popper-class}[x-placement="left-start"] [x-arrow],
+  #{$popper-class}[x-placement="left-end"] [x-arrow] {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    right: -12px;
+    margin-top: 6px;
+    transform: rotate(-90deg);
+    overflow: hidden;
+  }
+
+  #{$popper-class}[x-placement="right"] [x-arrow],
+  #{$popper-class}[x-placement="right-start"] [x-arrow],
+  #{$popper-class}[x-placement="right-end"] [x-arrow] {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    left: -12px;
+    margin-top: 6px;
+    transform: rotate(90deg);
+    overflow: hidden;
+  }
+}

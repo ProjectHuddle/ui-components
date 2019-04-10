@@ -12,58 +12,202 @@ import '@stencil/core';
 
 export namespace Components {
 
-  interface MyComponent {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
+  interface PhBubble {
+    'order': number;
+    'resolved': boolean;
+    'show': boolean;
+    'toggleShow': () => void;
+    'x': number;
+    'y': number;
   }
-  interface MyComponentAttributes extends StencilHTMLAttributes {
+  interface PhBubbleAttributes extends StencilHTMLAttributes {
+    'onDropped'?: (event: CustomEvent) => void;
+    'onMove'?: (event: CustomEvent) => void;
+    'onStart'?: (event: CustomEvent) => void;
+    'order'?: number;
+    'resolved'?: boolean;
+    'show'?: boolean;
+    'x'?: number;
+    'y'?: number;
+  }
+
+  interface PhButton {
+    'size': string;
     /**
-    * The first name
+    * (optional) Button type - either primary, secondary or text.
     */
-    'first'?: string;
+    'type': string;
+  }
+  interface PhButtonAttributes extends StencilHTMLAttributes {
+    'size'?: string;
     /**
-    * The last name
+    * (optional) Button type - either primary, secondary or text.
     */
-    'last'?: string;
+    'type'?: string;
+  }
+
+  interface PhDialog {
+    'close': () => Promise<boolean>;
     /**
-    * The middle name
+    * (optional) Title - string for the title of the dialog
     */
-    'middle'?: string;
+    'dialogTitle': string;
+    /**
+    * Visible - true or false
+    */
+    'visible': boolean;
+  }
+  interface PhDialogAttributes extends StencilHTMLAttributes {
+    /**
+    * (optional) Title - string for the title of the dialog
+    */
+    'dialogTitle'?: string;
+    /**
+    * Visible - true or false
+    */
+    'visible'?: boolean;
+  }
+
+  interface PhDot {
+    'resolved': boolean;
+  }
+  interface PhDotAttributes extends StencilHTMLAttributes {
+    'resolved'?: boolean;
+  }
+
+  interface PhEditor {}
+  interface PhEditorAttributes extends StencilHTMLAttributes {}
+
+  interface PhModal {
+    'close': () => Promise<boolean>;
+    /**
+    * (optional) Title - string for the title of the dialog
+    */
+    'modalTitle': string;
+    /**
+    * Visible - true or false
+    */
+    'visible': boolean;
+  }
+  interface PhModalAttributes extends StencilHTMLAttributes {
+    /**
+    * (optional) Title - string for the title of the dialog
+    */
+    'modalTitle'?: string;
+    /**
+    * Visible - true or false
+    */
+    'visible'?: boolean;
+  }
+
+  interface PhPopover {
+    'clickEvents': () => void;
+    'clickOutSide': () => void;
+    'closeDelay': number;
+    'content': string;
+    'handleMouseEnter': () => void;
+    'handleMouseLeave': () => void;
+    'hoverEvents': () => void;
+    'initPopper': () => void;
+    'openDelay': number;
+    'placement': string;
+    'trigger': string;
+    'visible': boolean;
+  }
+  interface PhPopoverAttributes extends StencilHTMLAttributes {
+    'closeDelay'?: number;
+    'content'?: string;
+    'onHide'?: (event: CustomEvent) => void;
+    'onShow'?: (event: CustomEvent) => void;
+    'openDelay'?: number;
+    'placement'?: string;
+    'trigger'?: string;
+    'visible'?: boolean;
   }
 }
 
 declare global {
   interface StencilElementInterfaces {
-    'MyComponent': Components.MyComponent;
+    'PhBubble': Components.PhBubble;
+    'PhButton': Components.PhButton;
+    'PhDialog': Components.PhDialog;
+    'PhDot': Components.PhDot;
+    'PhEditor': Components.PhEditor;
+    'PhModal': Components.PhModal;
+    'PhPopover': Components.PhPopover;
   }
 
   interface StencilIntrinsicElements {
-    'my-component': Components.MyComponentAttributes;
+    'ph-bubble': Components.PhBubbleAttributes;
+    'ph-button': Components.PhButtonAttributes;
+    'ph-dialog': Components.PhDialogAttributes;
+    'ph-dot': Components.PhDotAttributes;
+    'ph-editor': Components.PhEditorAttributes;
+    'ph-modal': Components.PhModalAttributes;
+    'ph-popover': Components.PhPopoverAttributes;
   }
 
 
-  interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
+  interface HTMLPhBubbleElement extends Components.PhBubble, HTMLStencilElement {}
+  var HTMLPhBubbleElement: {
+    prototype: HTMLPhBubbleElement;
+    new (): HTMLPhBubbleElement;
+  };
+
+  interface HTMLPhButtonElement extends Components.PhButton, HTMLStencilElement {}
+  var HTMLPhButtonElement: {
+    prototype: HTMLPhButtonElement;
+    new (): HTMLPhButtonElement;
+  };
+
+  interface HTMLPhDialogElement extends Components.PhDialog, HTMLStencilElement {}
+  var HTMLPhDialogElement: {
+    prototype: HTMLPhDialogElement;
+    new (): HTMLPhDialogElement;
+  };
+
+  interface HTMLPhDotElement extends Components.PhDot, HTMLStencilElement {}
+  var HTMLPhDotElement: {
+    prototype: HTMLPhDotElement;
+    new (): HTMLPhDotElement;
+  };
+
+  interface HTMLPhEditorElement extends Components.PhEditor, HTMLStencilElement {}
+  var HTMLPhEditorElement: {
+    prototype: HTMLPhEditorElement;
+    new (): HTMLPhEditorElement;
+  };
+
+  interface HTMLPhModalElement extends Components.PhModal, HTMLStencilElement {}
+  var HTMLPhModalElement: {
+    prototype: HTMLPhModalElement;
+    new (): HTMLPhModalElement;
+  };
+
+  interface HTMLPhPopoverElement extends Components.PhPopover, HTMLStencilElement {}
+  var HTMLPhPopoverElement: {
+    prototype: HTMLPhPopoverElement;
+    new (): HTMLPhPopoverElement;
   };
 
   interface HTMLElementTagNameMap {
-    'my-component': HTMLMyComponentElement
+    'ph-bubble': HTMLPhBubbleElement
+    'ph-button': HTMLPhButtonElement
+    'ph-dialog': HTMLPhDialogElement
+    'ph-dot': HTMLPhDotElement
+    'ph-editor': HTMLPhEditorElement
+    'ph-modal': HTMLPhModalElement
+    'ph-popover': HTMLPhPopoverElement
   }
 
   interface ElementTagNameMap {
-    'my-component': HTMLMyComponentElement;
+    'ph-bubble': HTMLPhBubbleElement;
+    'ph-button': HTMLPhButtonElement;
+    'ph-dialog': HTMLPhDialogElement;
+    'ph-dot': HTMLPhDotElement;
+    'ph-editor': HTMLPhEditorElement;
+    'ph-modal': HTMLPhModalElement;
+    'ph-popover': HTMLPhPopoverElement;
   }
 
 

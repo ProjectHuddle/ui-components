@@ -1,0 +1,46 @@
+:host {
+  @include reset;
+}
+.ph-popover {
+  font-size: 13px;
+  position: absolute;
+  overflow: visible;
+  text-align: left;
+  color: #51595f;
+  max-width: 400px !important;
+  display: block;
+  padding-top: 3px;
+  background: #fff;
+  z-index: 2015;
+  box-shadow: 0 0 0 1px rgba(35, 40, 45, 0.12), 0 0 3px rgba(0, 0, 0, 0.2);
+  cursor: auto;
+  user-select: "text";
+  padding: 20px;
+  border-radius: 2px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 100ms, visibility 100ms;
+
+  ::slotted(:first-child) {
+    margin-top: 0;
+  }
+
+  ::slotted(:nth-last-child(2)) {
+    margin-bottom: 0;
+  }
+
+  &.ph-show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.ph-popover-wrapper {
+  display: inline-block;
+
+  &:hover .ph-popover {
+    z-index: 2016;
+  }
+}
+
+@include popperArrow(".ph-popover");
