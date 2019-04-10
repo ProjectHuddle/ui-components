@@ -5,10 +5,12 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                 | Type     | Default     |
-| -------- | --------- | ----------------------------------------------------------- | -------- | ----------- |
-| `size`   | `size`    |                                                             | `string` | `"normal"`  |
-| `type`   | `type`    | (optional) Button type - either primary, secondary or text. | `string` | `"default"` |
+| Property  | Attribute | Description                                                 | Type      | Default     |
+| --------- | --------- | ----------------------------------------------------------- | --------- | ----------- |
+| `circled` | `circled` |                                                             | `boolean` | `false`     |
+| `rounded` | `rounded` |                                                             | `boolean` | `false`     |
+| `size`    | `size`    |                                                             | `string`  | `"normal"`  |
+| `type`    | `type`    | (optional) Button type - either primary, secondary or text. | `string`  | `"default"` |
 
 
 ## CSS Custom Properties

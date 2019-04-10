@@ -8,8 +8,8 @@
   display: inline-block;
 }
 .ph-button {
+  box-sizing: border-box;
   display: inline-block;
-  margin-top: 10px;
   font-size: 10px;
   padding: 16px 22px;
   background: transparent;
@@ -34,6 +34,22 @@
   &:hover {
     @include var(background, accent-color);
     color: #fff;
+  }
+
+  &__style--rounded {
+    border-radius: 99999px;
+  }
+
+  &__style--circled {
+    border-radius: 50%;
+    min-height: 40px;
+    min-width: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 36px;
+    text-align: center;
   }
 
   // sizes

@@ -11,6 +11,7 @@
 | ------------ | ------------- | ----------- | --------- | --------- |
 | `closeDelay` | `close-delay` |             | `number`  | `300`     |
 | `content`    | `content`     |             | `string`  | `""`      |
+| `offset`     | `offset`      |             | `string`  | `"0, 20"` |
 | `openDelay`  | `open-delay`  |             | `number`  | `0`       |
 | `placement`  | `placement`   |             | `string`  | `"top"`   |
 | `trigger`    | `trigger`     |             | `string`  | `"hover"` |

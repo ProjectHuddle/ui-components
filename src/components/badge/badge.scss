@@ -1,0 +1,24 @@
+:host {
+  @include reset;
+}
+.ph-badge {
+  position: relative;
+  display: inline-block;
+
+  &__content {
+    @include var(background-color, accent-color);
+    border-radius: 10px;
+    color: #fff;
+    display: inline-block;
+    font-size: 10px;
+    height: 18px;
+    line-height: 18px;
+    padding: 0 6px;
+    text-align: center;
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    transform: translateY(-50%) translateX(100%);
+  }
+}

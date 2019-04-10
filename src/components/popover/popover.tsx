@@ -31,6 +31,7 @@ export class Popover {
   @Prop() placement: string = "top";
   @Prop() openDelay: number = 0;
   @Prop() closeDelay: number = 300;
+  @Prop() offset: string = "0, 20";
   @Prop({ mutable: true, reflectToAttr: true }) visible: boolean = false;
 
   componentWillLoad() {
@@ -115,7 +116,7 @@ export class Popover {
       modifiers: {
         offset: {
           enabled: true,
-          offset: "0, 15"
+          offset: this.offset
         }
       },
       onCreate: () => {

@@ -12,6 +12,19 @@ import '@stencil/core';
 
 export namespace Components {
 
+  interface PhBadge {
+    /**
+    * A value prop
+    */
+    'value': string;
+  }
+  interface PhBadgeAttributes extends StencilHTMLAttributes {
+    /**
+    * A value prop
+    */
+    'value'?: string;
+  }
+
   interface PhBubble {
     'order': number;
     'resolved': boolean;
@@ -32,6 +45,8 @@ export namespace Components {
   }
 
   interface PhButton {
+    'circled': boolean;
+    'rounded': boolean;
     'size': string;
     /**
     * (optional) Button type - either primary, secondary or text.
@@ -39,6 +54,8 @@ export namespace Components {
     'type': string;
   }
   interface PhButtonAttributes extends StencilHTMLAttributes {
+    'circled'?: boolean;
+    'rounded'?: boolean;
     'size'?: string;
     /**
     * (optional) Button type - either primary, secondary or text.
@@ -109,6 +126,7 @@ export namespace Components {
     'handleMouseLeave': () => void;
     'hoverEvents': () => void;
     'initPopper': () => void;
+    'offset': string;
     'openDelay': number;
     'placement': string;
     'trigger': string;
@@ -117,6 +135,7 @@ export namespace Components {
   interface PhPopoverAttributes extends StencilHTMLAttributes {
     'closeDelay'?: number;
     'content'?: string;
+    'offset'?: string;
     'onHide'?: (event: CustomEvent) => void;
     'onShow'?: (event: CustomEvent) => void;
     'openDelay'?: number;
@@ -124,10 +143,21 @@ export namespace Components {
     'trigger'?: string;
     'visible'?: boolean;
   }
+
+  interface PhToolbar {
+    'commentCount': number;
+    'enabled': boolean;
+  }
+  interface PhToolbarAttributes extends StencilHTMLAttributes {
+    'commentCount'?: number;
+    'enabled'?: boolean;
+    'onCommentsClicked'?: (event: CustomEvent) => void;
+  }
 }
 
 declare global {
   interface StencilElementInterfaces {
+    'PhBadge': Components.PhBadge;
     'PhBubble': Components.PhBubble;
     'PhButton': Components.PhButton;
     'PhDialog': Components.PhDialog;
@@ -135,9 +165,11 @@ declare global {
     'PhEditor': Components.PhEditor;
     'PhModal': Components.PhModal;
     'PhPopover': Components.PhPopover;
+    'PhToolbar': Components.PhToolbar;
   }
 
   interface StencilIntrinsicElements {
+    'ph-badge': Components.PhBadgeAttributes;
     'ph-bubble': Components.PhBubbleAttributes;
     'ph-button': Components.PhButtonAttributes;
     'ph-dialog': Components.PhDialogAttributes;
@@ -145,8 +177,15 @@ declare global {
     'ph-editor': Components.PhEditorAttributes;
     'ph-modal': Components.PhModalAttributes;
     'ph-popover': Components.PhPopoverAttributes;
+    'ph-toolbar': Components.PhToolbarAttributes;
   }
 
+
+  interface HTMLPhBadgeElement extends Components.PhBadge, HTMLStencilElement {}
+  var HTMLPhBadgeElement: {
+    prototype: HTMLPhBadgeElement;
+    new (): HTMLPhBadgeElement;
+  };
 
   interface HTMLPhBubbleElement extends Components.PhBubble, HTMLStencilElement {}
   var HTMLPhBubbleElement: {
@@ -190,7 +229,14 @@ declare global {
     new (): HTMLPhPopoverElement;
   };
 
+  interface HTMLPhToolbarElement extends Components.PhToolbar, HTMLStencilElement {}
+  var HTMLPhToolbarElement: {
+    prototype: HTMLPhToolbarElement;
+    new (): HTMLPhToolbarElement;
+  };
+
   interface HTMLElementTagNameMap {
+    'ph-badge': HTMLPhBadgeElement
     'ph-bubble': HTMLPhBubbleElement
     'ph-button': HTMLPhButtonElement
     'ph-dialog': HTMLPhDialogElement
@@ -198,9 +244,11 @@ declare global {
     'ph-editor': HTMLPhEditorElement
     'ph-modal': HTMLPhModalElement
     'ph-popover': HTMLPhPopoverElement
+    'ph-toolbar': HTMLPhToolbarElement
   }
 
   interface ElementTagNameMap {
+    'ph-badge': HTMLPhBadgeElement;
     'ph-bubble': HTMLPhBubbleElement;
     'ph-button': HTMLPhButtonElement;
     'ph-dialog': HTMLPhDialogElement;
@@ -208,6 +256,7 @@ declare global {
     'ph-editor': HTMLPhEditorElement;
     'ph-modal': HTMLPhModalElement;
     'ph-popover': HTMLPhPopoverElement;
+    'ph-toolbar': HTMLPhToolbarElement;
   }
 
 
