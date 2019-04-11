@@ -1,4 +1,4 @@
-dist/
+
 www/
 
 *~
@@ -29,7 +29,6 @@ node_modules
 .idea
 .vscode
 npm-shrinkwrap.json
-dist
 .tern-port
 *.DS_Store
 .cache

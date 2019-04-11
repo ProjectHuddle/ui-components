@@ -1,0 +1,5 @@
+:host(.ph-has-dragged-fixed) {
+  position: fixed; }
+
+:host(.ph-has-dragged-absolute) {
+  position: fixed; }

@@ -1,0 +1,76 @@
+/**
+ * @prop --ph-accent-color: Primary background color
+ * @prop --ph-muted-color: Muted color
+ * @prop --body-color: Body color
+ */
+:host {
+  all: initial;
+  font-size: 16px;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: var(--ph-body-font, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif);
+  display: inline-block; }
+
+.ph-button {
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 10px;
+  padding: 16px 22px;
+  background: transparent;
+  color: #4353ff;
+  color: var(--ph-accent-color, #4353ff);
+  user-select: none;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  padding: 15px 20px;
+  border: 2px solid transparent;
+  border-color: #4353ff;
+  border-color: var(--ph-accent-color, #4353ff);
+  cursor: pointer;
+  transition: opacity 0.25s ease, color 0.25s ease, transform 0.25s ease, background 0.25s ease; }
+  .ph-button:hover {
+    background: #4353ff;
+    background: var(--ph-accent-color, #4353ff);
+    color: #fff; }
+  .ph-button__style--rounded {
+    border-radius: 99999px; }
+  .ph-button__style--circled {
+    border-radius: 50%;
+    min-height: 40px;
+    min-width: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 36px;
+    text-align: center; }
+  .ph-button__size--large {
+    padding: 20px 25px; }
+  .ph-button__size--small {
+    padding: 10px 15px; }
+  .ph-button__size--mini {
+    padding: 5px 10px; }
+  .ph-button__primary {
+    background: #4353ff;
+    background: var(--ph-accent-color, #4353ff);
+    color: #fff; }
+    .ph-button__primary:hover {
+      opacity: 0.85; }
+  .ph-button__text {
+    color: #999;
+    color: var(--ph-muted-color, #999);
+    background: transparent;
+    border-color: transparent; }
+    .ph-button__text:hover {
+      background: transparent;
+      color: #51595f;
+      color: var(--ph-body-color, #51595f); }

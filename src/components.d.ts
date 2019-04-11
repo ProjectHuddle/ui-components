@@ -92,6 +92,18 @@ export namespace Components {
     'resolved'?: boolean;
   }
 
+  interface PhDraggable {
+    'behavior': string;
+    'container': any;
+  }
+  interface PhDraggableAttributes extends StencilHTMLAttributes {
+    'behavior'?: string;
+    'container'?: any;
+    'onDragging'?: (event: CustomEvent) => void;
+    'onEnd'?: (event: CustomEvent) => void;
+    'onStart'?: (event: CustomEvent) => void;
+  }
+
   interface PhEditor {}
   interface PhEditorAttributes extends StencilHTMLAttributes {}
 
@@ -121,6 +133,7 @@ export namespace Components {
     'clickEvents': () => void;
     'clickOutSide': () => void;
     'closeDelay': number;
+    'closeEvents': () => void;
     'content': string;
     'handleMouseEnter': () => void;
     'handleMouseLeave': () => void;
@@ -129,7 +142,12 @@ export namespace Components {
     'offset': string;
     'openDelay': number;
     'placement': string;
+    'slotEvents': () => void;
     'trigger': string;
+    /**
+    * Allow outsiders to update popper
+    */
+    'updatePopper': () => void;
     'visible': boolean;
   }
   interface PhPopoverAttributes extends StencilHTMLAttributes {
@@ -162,6 +180,7 @@ declare global {
     'PhButton': Components.PhButton;
     'PhDialog': Components.PhDialog;
     'PhDot': Components.PhDot;
+    'PhDraggable': Components.PhDraggable;
     'PhEditor': Components.PhEditor;
     'PhModal': Components.PhModal;
     'PhPopover': Components.PhPopover;
@@ -174,6 +193,7 @@ declare global {
     'ph-button': Components.PhButtonAttributes;
     'ph-dialog': Components.PhDialogAttributes;
     'ph-dot': Components.PhDotAttributes;
+    'ph-draggable': Components.PhDraggableAttributes;
     'ph-editor': Components.PhEditorAttributes;
     'ph-modal': Components.PhModalAttributes;
     'ph-popover': Components.PhPopoverAttributes;
@@ -211,6 +231,12 @@ declare global {
     new (): HTMLPhDotElement;
   };
 
+  interface HTMLPhDraggableElement extends Components.PhDraggable, HTMLStencilElement {}
+  var HTMLPhDraggableElement: {
+    prototype: HTMLPhDraggableElement;
+    new (): HTMLPhDraggableElement;
+  };
+
   interface HTMLPhEditorElement extends Components.PhEditor, HTMLStencilElement {}
   var HTMLPhEditorElement: {
     prototype: HTMLPhEditorElement;
@@ -241,6 +267,7 @@ declare global {
     'ph-button': HTMLPhButtonElement
     'ph-dialog': HTMLPhDialogElement
     'ph-dot': HTMLPhDotElement
+    'ph-draggable': HTMLPhDraggableElement
     'ph-editor': HTMLPhEditorElement
     'ph-modal': HTMLPhModalElement
     'ph-popover': HTMLPhPopoverElement
@@ -253,6 +280,7 @@ declare global {
     'ph-button': HTMLPhButtonElement;
     'ph-dialog': HTMLPhDialogElement;
     'ph-dot': HTMLPhDotElement;
+    'ph-draggable': HTMLPhDraggableElement;
     'ph-editor': HTMLPhEditorElement;
     'ph-modal': HTMLPhModalElement;
     'ph-popover': HTMLPhPopoverElement;

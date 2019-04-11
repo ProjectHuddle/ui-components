@@ -1,0 +1,470 @@
+{
+  "components": [
+    {
+      "tag": "ph-badge",
+      "dependencies": [],
+      "componentClass": "Badge",
+      "componentPath": "components/badge/badge.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/badge/badge.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "value",
+          "type": "String",
+          "attr": "value"
+        }
+      ],
+      "shadow": true
+    },
+    {
+      "tag": "ph-bubble",
+      "dependencies": [
+        "ph-dot"
+      ],
+      "componentClass": "Bubble",
+      "componentPath": "components/bubble/bubble.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/bubble/bubble.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "order",
+          "type": "Number",
+          "attr": "order"
+        },
+        {
+          "name": "resolved",
+          "type": "Boolean",
+          "attr": "resolved"
+        },
+        {
+          "name": "show",
+          "type": "Boolean",
+          "mutable": true,
+          "attr": "show"
+        },
+        {
+          "name": "x",
+          "type": "Number",
+          "mutable": true,
+          "attr": "x"
+        },
+        {
+          "name": "y",
+          "type": "Number",
+          "mutable": true,
+          "attr": "y"
+        }
+      ],
+      "states": [
+        {
+          "name": "hovered"
+        },
+        {
+          "name": "startingX"
+        },
+        {
+          "name": "startingY"
+        }
+      ],
+      "methods": [
+        {
+          "name": "toggleShow"
+        }
+      ],
+      "hostElement": {
+        "name": "el"
+      },
+      "events": [
+        {
+          "event": "dropped"
+        },
+        {
+          "event": "move"
+        },
+        {
+          "event": "start"
+        }
+      ],
+      "shadow": true
+    },
+    {
+      "tag": "ph-button",
+      "dependencies": [],
+      "componentClass": "Button",
+      "componentPath": "components/button/button.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/button/button.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "circled",
+          "type": "Boolean",
+          "attr": "circled"
+        },
+        {
+          "name": "rounded",
+          "type": "Boolean",
+          "attr": "rounded"
+        },
+        {
+          "name": "size",
+          "type": "String",
+          "attr": "size"
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "attr": "type"
+        }
+      ],
+      "shadow": true
+    },
+    {
+      "tag": "ph-dialog",
+      "dependencies": [
+        "ph-button"
+      ],
+      "componentClass": "Dialog",
+      "componentPath": "components/dialog/dialog.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/dialog/dialog.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "dialogTitle",
+          "type": "String",
+          "attr": "dialog-title"
+        },
+        {
+          "name": "visible",
+          "type": "Boolean",
+          "mutable": true,
+          "reflectToAttr": true,
+          "attr": "visible"
+        }
+      ],
+      "listeners": [
+        {
+          "event": "window:keydown",
+          "method": "handleKeyDown",
+          "passive": false,
+          "capture": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "close"
+        }
+      ],
+      "shadow": true
+    },
+    {
+      "tag": "ph-dot",
+      "dependencies": [],
+      "componentClass": "Dot",
+      "componentPath": "components/dot/dot.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/dot/dot.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "resolved",
+          "type": "Boolean",
+          "attr": "resolved"
+        }
+      ],
+      "shadow": true
+    },
+    {
+      "tag": "ph-draggable",
+      "dependencies": [],
+      "componentClass": "Draggable",
+      "componentPath": "components/draggable/draggable.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/draggable/draggable.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "behavior",
+          "type": "String",
+          "attr": "behavior"
+        },
+        {
+          "name": "container",
+          "attr": "container"
+        }
+      ],
+      "states": [
+        {
+          "name": "active"
+        },
+        {
+          "name": "currentX"
+        },
+        {
+          "name": "currentY"
+        },
+        {
+          "name": "hasDragged"
+        },
+        {
+          "name": "initialX"
+        },
+        {
+          "name": "initialY"
+        },
+        {
+          "name": "xOffset"
+        },
+        {
+          "name": "yOffset"
+        }
+      ],
+      "hostElement": {
+        "name": "el"
+      },
+      "events": [
+        {
+          "event": "dragging"
+        },
+        {
+          "event": "end"
+        },
+        {
+          "event": "start"
+        }
+      ],
+      "shadow": true
+    },
+    {
+      "tag": "ph-editor",
+      "dependencies": [],
+      "componentClass": "Editor",
+      "componentPath": "components/editor/editor.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/editor/editor.scss"
+          ]
+        }
+      },
+      "shadow": true
+    },
+    {
+      "tag": "ph-modal",
+      "dependencies": [],
+      "componentClass": "Modal",
+      "componentPath": "components/modal/modal.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/modal/modal.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "modalTitle",
+          "type": "String",
+          "attr": "modal-title"
+        },
+        {
+          "name": "visible",
+          "type": "Boolean",
+          "mutable": true,
+          "reflectToAttr": true,
+          "attr": "visible"
+        }
+      ],
+      "listeners": [
+        {
+          "event": "window:keydown",
+          "method": "handleKeyDown",
+          "passive": false,
+          "capture": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "close"
+        }
+      ],
+      "shadow": true
+    },
+    {
+      "tag": "ph-popover",
+      "dependencies": [],
+      "componentClass": "Popover",
+      "componentPath": "components/popover/popover.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/popover/popover.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "closeDelay",
+          "type": "Number",
+          "attr": "close-delay"
+        },
+        {
+          "name": "content",
+          "type": "String",
+          "attr": "content"
+        },
+        {
+          "name": "offset",
+          "type": "String",
+          "attr": "offset"
+        },
+        {
+          "name": "openDelay",
+          "type": "Number",
+          "attr": "open-delay"
+        },
+        {
+          "name": "placement",
+          "type": "String",
+          "attr": "placement"
+        },
+        {
+          "name": "trigger",
+          "type": "String",
+          "attr": "trigger"
+        },
+        {
+          "name": "visible",
+          "type": "Boolean",
+          "mutable": true,
+          "reflectToAttr": true,
+          "attr": "visible",
+          "watch": [
+            "watchPopperHandler"
+          ]
+        }
+      ],
+      "states": [
+        {
+          "name": "closers"
+        },
+        {
+          "name": "popper"
+        },
+        {
+          "name": "reference"
+        }
+      ],
+      "methods": [
+        {
+          "name": "clickEvents"
+        },
+        {
+          "name": "clickOutSide"
+        },
+        {
+          "name": "closeEvents"
+        },
+        {
+          "name": "handleMouseEnter"
+        },
+        {
+          "name": "handleMouseLeave"
+        },
+        {
+          "name": "hoverEvents"
+        },
+        {
+          "name": "initPopper"
+        },
+        {
+          "name": "slotEvents"
+        },
+        {
+          "name": "updatePopper"
+        }
+      ],
+      "hostElement": {
+        "name": "el"
+      },
+      "events": [
+        {
+          "event": "hide"
+        },
+        {
+          "event": "show"
+        }
+      ],
+      "shadow": true
+    },
+    {
+      "tag": "ph-toolbar",
+      "dependencies": [],
+      "componentClass": "Toolbar",
+      "componentPath": "components/toolbar/toolbar.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/toolbar/toolbar.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "commentCount",
+          "type": "Number",
+          "attr": "comment-count"
+        },
+        {
+          "name": "enabled",
+          "type": "Boolean",
+          "mutable": true,
+          "attr": "enabled"
+        }
+      ],
+      "hostElement": {
+        "name": "el"
+      },
+      "events": [
+        {
+          "event": "commentsClicked"
+        }
+      ],
+      "shadow": true
+    }
+  ],
+  "collections": [],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "0.18.0",
+    "typescriptVersion": "3.3.3"
+  },
+  "bundles": []
+}

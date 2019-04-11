@@ -10,7 +10,6 @@ import {
 } from "@stencil/core";
 
 import Popper from "popper.js";
-
 @Component({
   tag: "ph-popover",
   styleUrl: "popover.scss",
@@ -24,6 +23,7 @@ export class Popover {
   @Element() el: HTMLElement;
 
   @State() reference;
+  @State() closers;
   @State() popper;
 
   @Prop() content: string = "";
@@ -34,8 +34,15 @@ export class Popover {
   @Prop() offset: string = "0, 20";
   @Prop({ mutable: true, reflectToAttr: true }) visible: boolean = false;
 
+  @Event() show: EventEmitter;
+  @Event() hide: EventEmitter;
+
   componentWillLoad() {
     this.reference = this.el.querySelectorAll("[slot=reference]")[0];
+    this.closers = this.el.querySelectorAll("[ph-close-popover]");
+    this.slotEvents();
+    this.closeEvents();
+
     switch (this.trigger) {
       case "hover":
         this.hoverEvents();
@@ -52,8 +59,28 @@ export class Popover {
     this.visible && this.initPopper();
   }
 
-  @Event() show: EventEmitter;
-  @Event() hide: EventEmitter;
+  @Method()
+  slotEvents() {
+    switch (this.trigger) {
+      case "hover":
+        this.hoverEvents();
+        this.clickOutSide();
+        break;
+      case "click":
+        this.clickEvents();
+        this.clickOutSide();
+        break;
+    }
+  }
+
+  @Method()
+  closeEvents() {
+    for (var i = 0; i < this.closers.length; i++) {
+      this.closers[i].addEventListener("click", () => {
+        this.visible = !this.visible;
+      });
+    }
+  }
 
   @Method()
   hoverEvents() {
@@ -136,6 +163,14 @@ export class Popover {
       this.bubble.style.opacity = "0";
       this.hide.emit(this);
     }
+  }
+
+  /**
+   * Allow outsiders to update popper
+   */
+  @Method()
+  updatePopper() {
+    this.popper.update();
   }
 
   render() {

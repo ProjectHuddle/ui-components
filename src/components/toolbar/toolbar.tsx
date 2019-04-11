@@ -1,5 +1,4 @@
 import { Component, Prop, Event, EventEmitter, Element } from "@stencil/core";
-import { draggable } from "../../utils/utils";
 
 @Component({
   tag: "ph-toolbar",
@@ -13,10 +12,6 @@ export class Toolbar {
 
   @Prop() commentCount: number = 0;
   @Prop({ mutable: true }) enabled: boolean = false;
-
-  componentDidLoad() {
-    draggable(this.el, window);
-  }
 
   render() {
     return (

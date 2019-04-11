@@ -1,0 +1,188 @@
+{
+  "tags": [
+    {
+      "label": "ph-badge",
+      "description": "",
+      "attributes": [
+        {
+          "label": "value",
+          "description": "A value prop",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ph-bubble",
+      "description": "",
+      "attributes": [
+        {
+          "label": "order",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "resolved",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "show",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "x",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "y",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ph-button",
+      "description": "",
+      "attributes": [
+        {
+          "label": "circled",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "rounded",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "size",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "type",
+          "description": "(optional) Button type - either primary, secondary or text.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ph-dialog",
+      "description": "",
+      "attributes": [
+        {
+          "label": "dialog-title",
+          "description": "(optional) Title - string for the title of the dialog",
+          "required": false
+        },
+        {
+          "label": "visible",
+          "description": "Visible - true or false",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ph-dot",
+      "description": "",
+      "attributes": [
+        {
+          "label": "resolved",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ph-draggable",
+      "description": "",
+      "attributes": [
+        {
+          "label": "behavior",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ph-editor",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "label": "ph-modal",
+      "description": "",
+      "attributes": [
+        {
+          "label": "modal-title",
+          "description": "(optional) Title - string for the title of the dialog",
+          "required": false
+        },
+        {
+          "label": "visible",
+          "description": "Visible - true or false",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ph-popover",
+      "description": "",
+      "attributes": [
+        {
+          "label": "close-delay",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "content",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "offset",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "open-delay",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "placement",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "trigger",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "visible",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ph-toolbar",
+      "description": "",
+      "attributes": [
+        {
+          "label": "comment-count",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "enabled",
+          "description": "",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

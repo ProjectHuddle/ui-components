@@ -1,4 +1,4 @@
-export function draggable(item: Element, container) {
+export function draggable(item: HTMLElement, container) {
   var active = false;
   var currentX;
   var currentY;
@@ -6,6 +6,8 @@ export function draggable(item: Element, container) {
   var initialY;
   var xOffset = 0;
   var yOffset = 0;
+
+  window.addEventListener("resize", maybeReset, false);
 
   container.addEventListener("touchstart", dragStart, false);
   container.addEventListener("touchend", dragEnd, false);
@@ -51,11 +53,56 @@ export function draggable(item: Element, container) {
       xOffset = currentX;
       yOffset = currentY;
 
-      setTranslate(currentX, currentY, item);
+      let rect = item.getBoundingClientRect() as DOMRect;
+      if (
+        (rect.x < 0 && currentX < item.dataset.currentX) ||
+        (rect.x + rect.width > window.innerWidth &&
+          currentX > item.dataset.currentX)
+      ) {
+        currentX = item.dataset.currentX;
+      }
+      if (
+        (rect.y < 0 && currentY < item.dataset.currentY) ||
+        (rect.y + rect.height > window.innerHeight &&
+          currentY > item.dataset.currentY)
+      ) {
+        currentY = item.dataset.currentY;
+      }
+
+      // get previous
+      item.style.transform =
+        "translate3d(" + currentX + "px, " + currentY + "px, 0)";
+
+      item.dataset.currentX = currentX;
+      item.dataset.currentY = currentY;
     }
   }
 
-  function setTranslate(xPos, yPos, el) {
-    el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+  function isOffScreen() {
+    let rect = item.getBoundingClientRect() as DOMRect;
+
+    return (
+      rect.x < 0 ||
+      rect.y < 0 ||
+      (rect.x + rect.width > window.innerWidth ||
+        rect.y + rect.height > window.innerHeight)
+    );
+  }
+
+  function maybeReset() {
+    if (isOffScreen()) {
+      reset();
+    }
+  }
+
+  function reset() {
+    item.style.transform = "translate3d(0px, 0px, 0)";
+    item.dataset.currentX = "0";
+    item.dataset.currentY = "0";
+
+    xOffset = 0;
+    yOffset = 0;
+
+    return false;
   }
 }
