@@ -10,7 +10,7 @@ class Draggable {
         this.initialY = 0;
         this.xOffset = 0;
         this.yOffset = 0;
-        this.container = window;
+        this.container = window.parent;
         this.behavior = "fixed";
         this.dragStart = e => {
             console.log('start', e);

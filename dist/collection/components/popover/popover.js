@@ -43,7 +43,7 @@ export class Popover {
     closeEvents() {
         for (var i = 0; i < this.closers.length; i++) {
             this.closers[i].addEventListener("click", () => {
-                this.visible = !this.visible;
+                this.visible = false;
             });
         }
     }

@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property    | Attribute  | Description | Type     | Default   |
-| ----------- | ---------- | ----------- | -------- | --------- |
-| `behavior`  | `behavior` |             | `string` | `"fixed"` |
-| `container` | --         |             | `Window` | `window`  |
+| Property    | Attribute  | Description | Type     | Default         |
+| ----------- | ---------- | ----------- | -------- | --------------- |
+| `behavior`  | `behavior` |             | `string` | `"fixed"`       |
+| `container` | --         |             | `Window` | `window.parent` |
 
 
 ## Events

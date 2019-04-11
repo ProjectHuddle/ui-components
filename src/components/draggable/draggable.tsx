@@ -24,7 +24,7 @@ export class Draggable {
   @State() xOffset: number = 0;
   @State() yOffset: number = 0;
 
-  @Prop() container = window;
+  @Prop() container = window.parent;
   @Prop() behavior: string = "fixed";
 
   @Event() start: EventEmitter;
