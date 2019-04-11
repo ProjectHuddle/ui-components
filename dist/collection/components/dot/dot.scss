@@ -1,0 +1,38 @@
+:host {
+  @include reset;
+}
+:host {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  margin-top: -18px;
+  margin-left: -18px;
+  @include var(background, accent-color);
+  border: 3px solid #fff;
+  border-radius: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  cursor: pointer;
+  z-index: 2147483647;
+  font-family: Helvetica, Arial, sans-serif;
+  transition: background 0.35s ease;
+  box-sizing: border-box;
+  opacity: 0.5;
+  user-select: none;
+  transition: opacity 100ms, visibility 100ms;
+}
+
+:host(.ph-hover) {
+  z-index: 301;
+  opacity: 1;
+  visibility: visible;
+}
+:host(.ph-show) {
+  z-index: 300;
+  opacity: 1;
+  visibility: visible;
+}

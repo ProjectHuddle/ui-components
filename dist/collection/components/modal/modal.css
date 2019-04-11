@@ -1,0 +1,64 @@
+:host {
+  all: initial;
+  font-size: 16px;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: var(--ph-body-font, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif); }
+
+.ph-modal-wrapper {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: var(--ph-body-font, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif);
+  color: #51595f;
+  color: var(--ph-body-color, #51595f);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  z-index: 1; }
+  .ph-modal-wrapper ::slotted(:first-child) {
+    margin-top: 0; }
+  .ph-modal-wrapper ::slotted(:last-child) {
+    margin-bottom: 0; }
+
+.ph-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; }
+
+.ph-modal {
+  padding: 35px 35px 30px 35px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+  min-width: 500px; }
+
+.ph-modal-title {
+  font-size: 18px;
+  margin-bottom: 1em; }
+
+.ph-modal-content {
+  margin-bottom: 1em; }
+
+.ph-modal-button-container {
+  text-align: right; }
+
+.ph-close-button {
+  width: 14px;
+  height: 14px;
+  opacity: 0.5;
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+  right: 30px; }

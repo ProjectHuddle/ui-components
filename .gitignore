@@ -1,4 +1,4 @@
-dist/
+
 www/
 
 *~
@@ -29,14 +29,12 @@ node_modules
 .idea
 .vscode
 npm-shrinkwrap.json
-dist
 .tern-port
 *.DS_Store
 .cache
 junit.xml
 coverage/
 *.lerna_backup
-build
 packages/examples/automated-*
 yarn.lock
 /**/LICENSE

@@ -1,0 +1,88 @@
+/**
+ * @prop --ph-accent-color: Primary background color
+ * @prop --ph-muted-color: Muted color
+ * @prop --body-color: Body color
+ */
+:host {
+  @include reset;
+  display: inline-block;
+}
+.ph-button {
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 10px;
+  padding: 16px 22px;
+  background: transparent;
+  @include var(color, accent-color);
+  user-select: none;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  padding: 15px 20px;
+  border: 2px solid transparent;
+  @include var(border-color, accent-color);
+  cursor: pointer;
+  transition: opacity 0.25s ease, color 0.25s ease, transform 0.25s ease,
+    background 0.25s ease;
+
+  &:hover {
+    @include var(background, accent-color);
+    color: #fff;
+  }
+
+  &__style--rounded {
+    border-radius: 99999px;
+  }
+
+  &__style--circled {
+    border-radius: 50%;
+    min-height: 40px;
+    min-width: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 36px;
+    text-align: center;
+  }
+
+  // sizes
+  &__size--large {
+    padding: 20px 25px;
+  }
+
+  &__size--small {
+    padding: 10px 15px;
+  }
+
+  &__size--mini {
+    padding: 5px 10px;
+  }
+
+  // types
+  &__primary {
+    @include var(background, accent-color);
+    color: #fff;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  &__text {
+    @include var(color, muted-color);
+    background: transparent;
+    border-color: transparent;
+
+    &:hover {
+      background: transparent;
+      @include var(color, body-color);
+    }
+  }
+}

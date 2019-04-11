@@ -48,6 +48,16 @@ Type: `void`
 
 
 
+### `closeEvents() => void`
+
+
+
+#### Returns
+
+Type: `void`
+
+
+
 ### `handleMouseEnter() => void`
 
 
@@ -81,6 +91,26 @@ Type: `void`
 ### `initPopper() => void`
 
 
+
+#### Returns
+
+Type: `void`
+
+
+
+### `slotEvents() => void`
+
+
+
+#### Returns
+
+Type: `void`
+
+
+
+### `updatePopper() => void`
+
+Allow outsiders to update popper
 
 #### Returns
 

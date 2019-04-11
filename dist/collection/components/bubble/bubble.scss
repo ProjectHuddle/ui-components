@@ -1,0 +1,41 @@
+:host {
+  @include reset;
+}
+.ph-bubble {
+  overflow: visible;
+  text-align: left;
+  color: #51595f;
+  box-sizing: border-box;
+  width: 100vw;
+  max-width: 400px !important;
+  display: block;
+  padding-top: 3px;
+  position: relative;
+  background: #fff;
+  z-index: 2;
+  box-shadow: 0 0 0 1px rgba(35, 40, 45, 0.12), 0 0 3px rgba(0, 0, 0, 0.2);
+  cursor: auto;
+  user-select: "text";
+  padding: 30px;
+  border-radius: 2px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 100ms, visibility 100ms;
+
+  .ph-show & {
+    z-index: 300;
+    opacity: 1;
+    visibility: visible;
+  }
+  .ph-hover & {
+    z-index: 301;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.ph-close-button {
+  @include closeButton(12px, 12px, 25px, 25px);
+}
+
+@include popperArrow(".ph-bubble");
