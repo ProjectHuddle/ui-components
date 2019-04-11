@@ -23,7 +23,7 @@ export declare class Draggable {
     };
     componentWillLoad(): void;
     dragStart: (e: any) => void;
-    dragEnd: () => void;
+    dragEnd: (e: any) => void;
     drag: (e: any) => void;
     maybeReset: () => void;
     isOutsideContainer: () => boolean;

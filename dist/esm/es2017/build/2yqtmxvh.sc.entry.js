@@ -13,6 +13,7 @@ class Draggable {
         this.container = window;
         this.behavior = "fixed";
         this.dragStart = e => {
+            console.log('start', e);
             if (e.type === "touchstart") {
                 this.initialX = e.touches[0].clientX - this.xOffset;
                 this.initialY = e.touches[0].clientY - this.yOffset;
@@ -26,7 +27,8 @@ class Draggable {
                 this.active = true;
             }
         };
-        this.dragEnd = () => {
+        this.dragEnd = (e) => {
+            console.log('end', e);
             this.initialX = this.currentX;
             this.initialY = this.currentY;
             if (this.active) {
@@ -35,7 +37,9 @@ class Draggable {
             this.active = false;
         };
         this.drag = e => {
+            console.log('maybedrag', e);
             if (this.active) {
+                console.log('drag', e);
                 e.preventDefault();
                 this.hasDragged = true;
                 if (e.type === "touchmove") {

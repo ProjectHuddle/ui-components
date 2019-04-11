@@ -55,6 +55,7 @@ export class Draggable {
 
   // @Method()
   dragStart = e => {
+    console.log('start', e);
     if (e.type === "touchstart") {
       this.initialX = e.touches[0].clientX - this.xOffset;
       this.initialY = e.touches[0].clientY - this.yOffset;
@@ -70,7 +71,8 @@ export class Draggable {
   };
 
   // @Method()
-  dragEnd = () => {
+  dragEnd = (e) => {
+    console.log('end', e);
     this.initialX = this.currentX;
     this.initialY = this.currentY;
 
@@ -83,7 +85,9 @@ export class Draggable {
 
   // @Method()
   drag = e => {
+    console.log('maybedrag', e);
     if (this.active) {
+      console.log('drag', e);
       e.preventDefault();
       this.hasDragged = true;
 
