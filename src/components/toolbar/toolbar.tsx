@@ -3,7 +3,8 @@ import { Component, Prop, Event, EventEmitter, Element } from "@stencil/core";
 @Component({
   tag: "ph-toolbar",
   styleUrl: "toolbar.scss",
-  shadow: true
+  shadow: true,
+  scoped: true
 })
 export class Toolbar {
   @Element() el: HTMLElement;
